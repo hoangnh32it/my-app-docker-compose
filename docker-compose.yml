@@ -18,14 +18,14 @@ services:
       timeout: 5s
       retries: 10
     networks:
-      - backend-net
+      - my-app-net
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     image: my-backend-app:latest
-    container_name: my-backend-app
+    # container_name: my-backend-app
     depends_on:
       db:
         condition: service_healthy
@@ -37,20 +37,21 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     networks:
-      - backend-net
+      - my-app-net
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     image: my-frontend-app:latest
-    container_name: my-frontend-app
+    # container_name: my-frontend-app
     ports:
       - "3000:80" # port host:container
     depends_on:
       - backend
     networks:
-      - backend-net
+      - my-app-net
 
 networks:
-  backend-net:
+  my-app-net:
+    name: my-app-net # <- ép Docker tạo tên vật lý đúng ý

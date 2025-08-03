@@ -107,6 +107,14 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
+- Build lại chỉ frontend
+
+```bash
+docker compose stop frontend
+docker compose build --no-cache frontend
+docker compose up -d frontend
+```
+
 - Xoá toàn bộ các service
 
 ```bash
@@ -176,4 +184,8 @@ docker rmi my-backend-app my-frontend-app
 java -jar app.jar --spring.config.location=/path/to/application.properties
 ```
 
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_github -C "huyhoang.it.devops@gmail.com"
+- Chỉ định tên app khi khởi chạy dự án
+
+```bash
+COMPOSE_PROJECT_NAME=myapp docker compose up -d
+```
