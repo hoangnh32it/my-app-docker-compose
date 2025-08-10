@@ -8,6 +8,7 @@ Dự án bao gồm hệ thống fullstack triển khai bằng Docker Compose v�
 - **Backend**: Java 17 + Spring Boot
 - **Database**: PostgreSQL 14
 - Các container được liên kết nội bộ qua `service name` trong cùng mạng Docker
+- test
 
 ---
 
